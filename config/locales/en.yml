@@ -21,3 +21,10 @@
 
 en:
   hello: "Hello world"
+  activerecord:
+    models:
+    attributes:
+      user:
+        first_name: "Имя"
+        last_name: "Фамилия"
+        position: "Должность"
