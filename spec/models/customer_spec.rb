@@ -10,4 +10,16 @@ RSpec.describe Customer, type: :model do
         customer = FactoryGirl.build(:customer, :title => 'NA')
         expect(customer).to be_invalid
     end
+
+    it "should has unique title" do
+        customer = FactoryGirl.create(:customer)
+        customer2 = FactoryGirl.build(:customer)
+        expect(customer2).to be_invalid
+    end
+
+    it "should has unique title" do 
+        customer = FactoryGirl.create(:customer)
+        customer2 = FactoryGirl.build(:customer, :title => 'SomeoneElse')
+        expect(customer2).to be_valid
+    end
 end

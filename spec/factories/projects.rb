@@ -1,8 +1,9 @@
 FactoryGirl.define do
   factory :project do
     location 'Russia'
-    customer 
-    status 
+    title 'BestProjectInTheWorld'
+    customer { FactoryGirl.build(:customer) }
+    status { FactoryGirl.build(:status) }
   end
 
 end

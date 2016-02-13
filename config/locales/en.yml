@@ -29,6 +29,9 @@ en:
         last_name: "Фамилия"
         position: "Должность"
       project:
+        title: "Название"
         location: "Расположение"
       customer:
         title: "Название"
+      status:
+        text: "Статус"

@@ -6,4 +6,5 @@ class Project < ActiveRecord::Base
     belongs_to :status
 
     validates :location, :length => { :minimum => 3, :message => 'должно быть длиннее 3 символов' }
+    validates :title, :uniqueness => { :message => 'должно быть уникальным' }, :length => { :minimum => 3, :message => 'должно быть длиннее 3 символов' }
 end
