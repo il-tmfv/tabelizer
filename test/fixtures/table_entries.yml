@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  comment: MyString
+  duration: 1.5
+  date: MyString
+  datetime: MyString
+  user_id: 
+  project_id: 
+
+two:
+  comment: MyString
+  duration: 1.5
+  date: MyString
+  datetime: MyString
+  user_id: 
+  project_id: 
