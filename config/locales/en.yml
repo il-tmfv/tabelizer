@@ -28,3 +28,5 @@ en:
         first_name: "Имя"
         last_name: "Фамилия"
         position: "Должность"
+      project:
+        location: "Расположение"
