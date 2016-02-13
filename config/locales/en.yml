@@ -30,3 +30,5 @@ en:
         position: "Должность"
       project:
         location: "Расположение"
+      customer:
+        title: "Название"

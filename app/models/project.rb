@@ -5,5 +5,5 @@ class Project < ActiveRecord::Base
     has_many :assignments
     belongs_to :status
 
-    validates :location, :length => { :minimum => 3 }
+    validates :location, :length => { :minimum => 3, :message => 'должно быть длиннее 3 символов' }
 end
