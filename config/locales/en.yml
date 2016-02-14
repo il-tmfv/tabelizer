@@ -35,3 +35,9 @@ en:
         title: "Название"
       status:
         text: "Статус"
+      assignment:
+        date: "Дата"
+      table_entry:
+        commnet: "Комментарий"
+        duration: "Затраченное время"
+        date: "Дата"
