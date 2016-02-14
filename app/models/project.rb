@@ -7,4 +7,12 @@ class Project < ActiveRecord::Base
 
     validates :location, :length => { :minimum => 3, :message => 'должно быть длиннее 3 символов' }
     validates :title, :uniqueness => { :message => 'должно быть уникальным' }, :length => { :minimum => 3, :message => 'должно быть длиннее 3 символов' }
+
+    scope :active, -> { joins(:status).where("statuses.text = 'Активный'") } 
+    
+    def spent_time 
+        time = 0.0
+        table_entries.each { |e| time += e.duration }
+        time
+    end
 end
