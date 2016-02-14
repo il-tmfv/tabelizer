@@ -34,6 +34,7 @@ RSpec.describe Project, type: :model do
     it "should return 40" do
         project2 = FactoryGirl.create(:project, :title => 'Next Project')
         project = FactoryGirl.create(:project)
+        4.times { FactoryGirl.create(:table_entry, :project => project2) }
         5.times { FactoryGirl.create(:table_entry, :project => project) }
         expect(project.spent_time).to eq(40.0)
     end
