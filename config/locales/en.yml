@@ -33,6 +33,7 @@ en:
         location: "Расположение"
       customer:
         title: "Название"
+        comment: "Комментарий"
       status:
         text: "Статус"
       assignment:

@@ -7,18 +7,31 @@ class CustomersController < ApplicationController
         @customer = Customer.find(params[:id])
     end
 
+    def edit
+        @customer = Customer.find(params[:id])
+    end
+
     def create
         @customer = Customer.new(customer_params)
         if @customer.save
-            render :index
+            redirect_to :customers_index
         else
-            render :new
+            redirect_to :customer_new
+        end
+    end
+
+    def update
+        @customer = Customer.find(params[:id])
+        if @customer.update_attributes(customer_params)
+            redirect_to :customers_index
+        else
+            redirect_to :customer_edit
         end
     end
 
     def destroy
         Customer.destroy(params[:id])    
-        render :index
+        redirect_to :customers_index
     end
 
     private

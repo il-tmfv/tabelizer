@@ -19,11 +19,23 @@ RSpec.describe CustomersController, type: :controller do
         }.to change(Customer, :count).by(1)
     end
 
-    it "creates customer and renders index" do
+    it "creates customer and redirects to index" do
         post :create, customer: FactoryGirl.attributes_for(:customer)
-        expect(response).to render_template(:index)
+        expect(response).to redirect_to(:customers_index)
     end
 
+    it "shows edit customer form" do
+        customer = FactoryGirl.create(:customer)
+        get :edit, id: customer.id
+        expect(response).to render_template(:edit)
+    end
+
+    it "redirects to index when updates" do
+        customer = FactoryGirl.create(:customer)
+        put :update, id: customer.id, customer: FactoryGirl.attributes_for(:customer), comment: 'New comment'
+        expect(response).to redirect_to(:customers_index)
+    end
+    
     it "shows customer" do
         customer = FactoryGirl.create(:customer)
         get :show, id: customer.id

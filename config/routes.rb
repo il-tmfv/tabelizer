@@ -3,6 +3,9 @@ Rails.application.routes.draw do
     delete "customer/delete/:id" => "customers#destroy", as: :customer_destroy
     post "customer/create" => "customers#create", as: :customer_create
     get "customer/:id" => "customers#show", as: :customer_show
+    get "customer/edit/:id" => "customers#edit", as: :customer_edit
+    put "customer/edit/:id" => "customers#update", as: :customer_update
+    get "customer/new" => "customers#new", as: :customer_new
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
