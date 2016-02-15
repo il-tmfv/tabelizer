@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+    get "/customers" => "customers#index", as: :customers_index
+    delete "customer/delete/:id" => "customers#destroy", as: :customer_destroy
+    post "customer/create" => "customers#create", as: :customer_create
+    get "customer/:id" => "customers#show", as: :customer_show
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

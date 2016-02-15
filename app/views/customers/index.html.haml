@@ -1,0 +1,13 @@
+%table
+  %thead
+    %tr
+      %th Наименование
+      %th Комментарий
+      %th Команды
+  %tbody
+    - @customers.each do |c| 
+      %tr
+        %td= c.title
+        %td= c.comment
+        %td= link_to "Удалить", customer_destroy_path(c.id), :class => "btn btn-danger", method: :delete
+
