@@ -9,5 +9,8 @@
       %tr
         %td= c.title
         %td= c.comment
-        %td= link_to "Удалить", customer_destroy_path(c.id), :class => "btn btn-danger", method: :delete
+        %td= button_to "Редактировать", edit_customer_path(c.id), method: :get, class: "btn btn-info" 
+        %td= button_to "Удалить", customer_path(c.id), method: :delete, class: "btn btn-danger" 
+%div
+  = button_to "Создать", new_customer_path, method: :get, class: "btn btn-primary"
 

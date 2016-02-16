@@ -21,7 +21,7 @@ RSpec.describe CustomersController, type: :controller do
 
     it "creates customer and redirects to index" do
         post :create, customer: FactoryGirl.attributes_for(:customer)
-        expect(response).to redirect_to(:customers_index)
+        expect(response).to redirect_to(action: :index)
     end
 
     it "shows edit customer form" do
@@ -33,7 +33,7 @@ RSpec.describe CustomersController, type: :controller do
     it "redirects to index when updates" do
         customer = FactoryGirl.create(:customer)
         put :update, id: customer.id, customer: FactoryGirl.attributes_for(:customer), comment: 'New comment'
-        expect(response).to redirect_to(:customers_index)
+        expect(response).to redirect_to(action: :index)
     end
     
     it "shows customer" do
