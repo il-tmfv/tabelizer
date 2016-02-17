@@ -20,4 +20,12 @@ RSpec.feature "EditCustomers", type: :feature do
 
     expect(page).to have_text("Test testy customer")
   end
+
+  scenario "User deletes customer" do
+    customer = FactoryGirl.create(:customer)
+
+    visit "/customers"
+
+    expect { click_button "Удалить" }.to change(Customer, :count).by(-1)
+  end
 end
