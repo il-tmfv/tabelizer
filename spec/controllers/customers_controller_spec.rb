@@ -1,6 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe CustomersController, type: :controller do
+  before(:each) do
+    sign_in FactoryGirl.create(:user)
+  end
+
     it "renders index template" do
         get :index
         expect(response).to render_template(:index)
