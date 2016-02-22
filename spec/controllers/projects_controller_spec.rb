@@ -13,18 +13,7 @@ RSpec.describe ProjectsController, type: :controller do
         }.to change(Project, :count).by(-1)
     end
 
-    it "creates project" do
-        expect {
-            post :create, project: FactoryGirl.attributes_for(:project)
-        }.to change(Project, :count).by(1)
-    end
-
-    it "creates project and redirects to index" do
-        post :create, project: FactoryGirl.attributes_for(:project)
-        expect(response).to redirect_to(action: :index)
-    end
-
-    it "shows edit project form" do
+   it "shows edit project form" do
         project = FactoryGirl.create(:project)
         get :edit, id: project.id
         expect(response).to render_template(:edit)

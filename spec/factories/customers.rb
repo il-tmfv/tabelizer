@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :customer do
-    title 'DoSoftForMe Inc.'
-    comment 'Our best client!'    
+    title { Faker::Company.name }
+    comment { Faker::Company.bs }
   end
 
 end

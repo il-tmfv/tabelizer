@@ -12,8 +12,8 @@ RSpec.describe Customer, type: :model do
     end
 
     it "should has unique title" do
-        customer = FactoryGirl.create(:customer)
-        customer2 = FactoryGirl.build(:customer)
+        customer = FactoryGirl.create(:customer, :title => 'test')
+        customer2 = FactoryGirl.build(:customer, :title => 'test')
         expect(customer2).to be_invalid
     end
 

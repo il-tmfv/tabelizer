@@ -12,8 +12,8 @@ RSpec.describe Status, type: :model do
     end
 
     it "should has unique text" do
-        status = FactoryGirl.create(:status)
-        status2 = FactoryGirl.build(:status)
+        status = FactoryGirl.create(:status, :text => 'test')
+        status2 = FactoryGirl.build(:status, :text => 'test')
         expect(status2).to be_invalid
     end
 

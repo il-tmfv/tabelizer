@@ -18,3 +18,5 @@ assign1 = Assignment.create date: DateTime.current, user: user1, project: projec
 
 entry1 = TableEntry.create user: user1, project: project1, duration: 8, date: DateTime.current, comment: 'nothing special'
 
+Status.create(text: 'Активный')
+Status.create(text: 'Завершен')

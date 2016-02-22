@@ -12,8 +12,8 @@ RSpec.describe Project, type: :model do
     end
 
     it "should has unique title" do
-        project = FactoryGirl.create(:project)
-        project2 = FactoryGirl.build(:project)
+        project = FactoryGirl.create(:project, :title => 'test')
+        project2 = FactoryGirl.build(:project, :title => 'test')
         expect(project2).to be_invalid
     end
 

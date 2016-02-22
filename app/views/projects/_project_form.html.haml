@@ -1,4 +1,6 @@
 = simple_form_for project do |f|
   = f.input :title
   = f.input :location
+  = f.association :status, label_method: :text
+  =f.association :customer, label_method: :title
   = f.button :submit, 'Сохранить'

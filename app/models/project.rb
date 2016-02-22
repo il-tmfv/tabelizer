@@ -7,6 +7,7 @@ class Project < ActiveRecord::Base
 
     validates :location, :length => { :minimum => 3, :message => 'должно быть длиннее 3 символов' }
     validates :title, :uniqueness => { :message => 'должно быть уникальным' }, :length => { :minimum => 3, :message => 'должно быть длиннее 3 символов' }
+    validates :customer, :status, :presence => { :message => "должен быть определен"}
 
     scope :active, -> { joins(:status).where("statuses.text = 'Активный'") } 
     
