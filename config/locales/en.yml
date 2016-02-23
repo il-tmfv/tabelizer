@@ -28,6 +28,8 @@ en:
         first_name: "Имя"
         last_name: "Фамилия"
         position: "Должность"
+        password: "Пароль"
+        password_confirmation: "Пароль еще раз"
       project:
         title: "Название"
         location: "Расположение"
