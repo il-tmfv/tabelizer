@@ -30,6 +30,7 @@ en:
         position: "Должность"
         password: "Пароль"
         password_confirmation: "Пароль еще раз"
+        remember_me: "Запомнить"
       project:
         title: "Название"
         location: "Расположение"

@@ -10,9 +10,7 @@ RSpec.feature "EditCustomers", type: :feature do
     fill_in "user_first_name", :with => "John"
     fill_in "user_last_name", :with => "Doe"
     fill_in "user_position", :with => "test"
-
     click_button "Регистрация"
-
   end
 
   scenario "User edits customer" do
