@@ -1,6 +1,20 @@
 require 'rails_helper'
 
 RSpec.feature "EditCustomers", type: :feature do
+  before(:each) do
+    visit "/"
+    click_link "Регистрация"
+    fill_in "user_email", :with => "me@me.com"
+    fill_in "user_password", :with => "12345678"
+    fill_in "user_password_confirmation", :with => "12345678"
+    fill_in "user_first_name", :with => "John"
+    fill_in "user_last_name", :with => "Doe"
+    fill_in "user_position", :with => "test"
+
+    click_button "Регистрация"
+
+  end
+
   scenario "User edits customer" do
     customer = FactoryGirl.create(:customer)
 

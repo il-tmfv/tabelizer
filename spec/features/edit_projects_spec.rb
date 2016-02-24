@@ -4,7 +4,16 @@ RSpec.feature "EditProjects", type: :feature do
   before(:each) do
     FactoryGirl.create(:status, :text => "Активный")
     FactoryGirl.create(:status, :text => "Завершен")
-  end
+    visit "/"
+    click_link "Регистрация"
+    fill_in "user_email", :with => "me@me.com"
+    fill_in "user_password", :with => "12345678"
+    fill_in "user_password_confirmation", :with => "12345678"
+    fill_in "user_first_name", :with => "John"
+    fill_in "user_last_name", :with => "Doe"
+    fill_in "user_position", :with => "test"
+    click_button "Регистрация"
+   end
 
   scenario "User creates project" do
     customer = FactoryGirl.create(:customer)
