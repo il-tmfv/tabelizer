@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.feature "EditProjects", type: :feature do
   before(:each) do
-    FactoryGirl.create(:status, :text => "Активный")
+    @active_status = FactoryGirl.create(:status, :text => "Активный")
     FactoryGirl.create(:status, :text => "Завершен")
     visit "/"
     click_link "Регистрация"
@@ -14,6 +14,13 @@ RSpec.feature "EditProjects", type: :feature do
     fill_in "user_position", :with => "test"
     click_button "Регистрация"
    end
+
+  scenario "User gets assigned to the project" do
+    customer = FactoryGirl.create(:customer)
+    project = FactoryGirl.create(:project, :status => @active_status, :customer => customer)
+    visit "/"
+    expect { click_button "Присоединиться" }.to change(Assignment, :count).by(1)
+  end
 
   scenario "User creates project" do
     customer = FactoryGirl.create(:customer)

@@ -8,8 +8,13 @@
     = csrf_meta_tags
   %body
     - if user_signed_in?
-      = "Здравствуйте, #{current_user.last_name} #{current_user.first_name}"
-      = link_to 'Выйти', destroy_user_session_path, method: :delete
+      %div 
+        %ul
+          %li= link_to 'Заказчики', customers_path
+          %li= link_to 'Проекты', projects_path
+          %li= link_to 'Пользователи', users_path
+          %li= "Здравствуйте, #{current_user.last_name} #{current_user.first_name}"
+          %li= link_to 'Выйти', destroy_user_session_path, method: :delete
     = notice
     = alert
     = yield

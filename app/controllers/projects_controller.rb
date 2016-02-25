@@ -38,9 +38,19 @@ class ProjectsController < ApplicationController
    redirect_to action: :index 
   end
 
+  def assign_user
+    assignment = Assignment.new(assignment_params)
+    assignment.date = Time.now
+    assignment.save
+    redirect_to action: :index
+  end
+
   private
   def project_params
     params.require(:project).permit(:title, :location, :status_id, :customer_id)
   end
 
+  def assignment_params
+    params.permit(:user_id, :project_id)
+  end
 end

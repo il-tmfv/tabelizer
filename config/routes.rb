@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :customers
   resources :users 
   resources :projects
+  post "assign/:user_id/to/:project_id" => "projects#assign_user", as: :assign_user
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
