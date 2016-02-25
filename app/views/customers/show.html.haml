@@ -2,3 +2,7 @@
 %h4= @customer.comment
 %div Всего проектов у данного заказчика
 %div= @customer.projects.size
+
+= button_to "Редактировать", edit_customer_path(@customer), method: :get, class: "btn btn-info" 
+= button_to "Удалить", customer_path(@customer), method: :delete, class: "btn btn-danger", data: { confirm: "Вы уверены?" }
+ 

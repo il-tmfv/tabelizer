@@ -17,8 +17,9 @@ RSpec.feature "EditProjects", type: :feature do
 
   scenario "User gets assigned to the project" do
     customer = FactoryGirl.create(:customer)
-    project = FactoryGirl.create(:project, :status => @active_status, :customer => customer)
+    project = FactoryGirl.create(:project, :title => "test project", :status => @active_status, :customer => customer)
     visit "/"
+    click_link "test project"
     expect { click_button "Присоединиться" }.to change(Assignment, :count).by(1)
   end
 
@@ -42,6 +43,7 @@ RSpec.feature "EditProjects", type: :feature do
     select "Активный", from: "project_status_id"
     select "#{customer.title}", from: "project_customer_id"
     click_button "Сохранить"
+    click_link "RSpec test project"
     click_button "Редактировать"
     fill_in "project_title", :with => "Edited project"
     click_button "Сохранить"
@@ -57,6 +59,7 @@ RSpec.feature "EditProjects", type: :feature do
     select "Активный", from: "project_status_id"
     select "#{customer.title}", from: "project_customer_id"
     click_button "Сохранить"
+    click_link "RSpec test project"
     expect { click_button "Удалить" }.to change(Project, :count).by(-1)
   end
 end

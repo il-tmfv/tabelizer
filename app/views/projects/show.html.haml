@@ -5,3 +5,9 @@
   %li= "Расположение: #{@project.location}" 
   %li= "В проекте занято сотрудников: #{@project.users.size}"
   %li= "На проект потрачено времени: #{@project.spent_time} ч."
+
+- if !(@project.users.include? current_user)
+  = button_to "Присоединиться", assign_user_path(current_user.id, @project.id), method: :post, class: "btn btn-warning"
+= button_to "Редактировать", edit_project_path(@project), method: :get, class: "btn btn-info" 
+= button_to "Удалить", project_path(@project), method: :delete, class: "btn btn-danger", data: { confirm: "Вы уверены?" }
+

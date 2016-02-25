@@ -37,7 +37,7 @@ RSpec.feature "EditCustomers", type: :feature do
     customer = FactoryGirl.create(:customer)
 
     visit "/customers"
-
+    click_link "#{customer.title}"
     expect { click_button "Удалить" }.to change(Customer, :count).by(-1)
   end
 end
