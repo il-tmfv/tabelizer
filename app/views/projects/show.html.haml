@@ -1,1 +1,7 @@
-
+%div Информация о проекте:
+%ul
+  %li= @project.title
+  %li= "Заказчик: #{@project.customer.title}"
+  %li= "Расположение: #{@project.location}" 
+  %li= "В проекте занято сотрудников: #{@project.users.size}"
+  %li= "На проект потрачено времени: #{@project.spent_time} ч."
