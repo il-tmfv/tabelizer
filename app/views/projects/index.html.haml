@@ -1,6 +1,7 @@
 %table
   %thead
     %tr
+      %th Статус
       %th Наименование
       %th Клиент
       %th Расположение 
@@ -10,6 +11,7 @@
   %tbody
     - @projects.each do |p| 
       %tr
+        %td= p.status.text
         %td= link_to p.title, project_path(p)
         %td= p.customer.title
         %td= p.location
