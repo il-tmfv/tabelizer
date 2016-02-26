@@ -31,6 +31,7 @@ en:
         password: "Пароль"
         password_confirmation: "Пароль еще раз"
         remember_me: "Запомнить"
+        current_password: "Текущий пароль"
       project:
         title: "Название"
         location: "Расположение"
@@ -47,3 +48,9 @@ en:
         commnet: "Комментарий"
         duration: "Затраченное время"
         date: "Дата"
+    errors:
+      models:
+        customer:
+          attributes:
+            title:
+              blank: "не может быть пустым"

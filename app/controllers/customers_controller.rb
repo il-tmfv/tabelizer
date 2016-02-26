@@ -18,6 +18,7 @@ class CustomersController < ApplicationController
   def create
     @customer = Customer.new(customer_params)
       if @customer.save
+        flash[:notice] = 'Добавлен новый заказчик'
         redirect_to action: :index
       else
         redirect_to action: :new

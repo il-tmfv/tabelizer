@@ -1,5 +1,8 @@
 .container
-  = simple_form_for customer do |f|
-    = f.input :title
-    = f.input :comment
-    = f.button :submit, 'Сохранить', class: "btn btn-primary"
+  = simple_form_for customer, validate: true do |f|
+    = f.error_notification
+    .form-inputs
+      = f.input :title
+      = f.input :comment
+    .form-actions
+      = f.button :submit, 'Сохранить', class: "btn btn-primary"
