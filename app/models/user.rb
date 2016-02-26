@@ -12,6 +12,6 @@ class User < ActiveRecord::Base
   validates :position, :presence => {:message => 'не может быть пустой'}
 
   def spent_time_on project
-    return 0
+    table_entries.where(project: project).sum(:duration)
   end
 end
