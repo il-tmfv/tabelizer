@@ -18,15 +18,17 @@ class ProjectsController < ApplicationController
   def update
     @project = Project.find(params[:id])
       if @project.update_attributes(project_params)
+        flash[:notice] = 'Изменения сохранены'
         redirect_to action: :index
       else
-       render action: :edit
+        render action: :edit
       end
   end
 
   def create
     @project = Project.new(project_params)
     if @project.save
+      flash[:notice] = 'Создан новый проект'
       redirect_to action: :index
     else
       render action: :new
