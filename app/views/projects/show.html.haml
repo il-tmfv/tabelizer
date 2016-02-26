@@ -1,13 +1,39 @@
-%div Информация о проекте:
-%ul
-  %li= @project.title
-  %li= "Заказчик: #{@project.customer.title}"
-  %li= "Расположение: #{@project.location}" 
-  %li= "В проекте занято сотрудников: #{@project.users.size}"
-  %li= "На проект потрачено времени: #{@project.spent_time} ч."
-
-- if !(@project.users.include? current_user)
-  = button_to "Присоединиться", assign_user_path(current_user.id, @project.id), method: :post, class: "btn btn-warning"
-= button_to "Редактировать", edit_project_path(@project), method: :get, class: "btn btn-info" 
-= button_to "Удалить", project_path(@project), method: :delete, class: "btn btn-danger", data: { confirm: "Вы уверены?" }
+.container
+  %div{class: "page-header"}
+    %h1 Информация о проекте
+  %div{class: "responsive-table table-hover"}
+    %table.table
+      %tr
+        %td Проект:
+        %td= @project.title
+      %tr
+        %td Заказчик:
+        %td= @project.customer.title
+      %tr
+        %td Расположение:
+        %td= @project.location
+      %tr
+        %td В проекте занято сотрудников:
+        %td= @project.users.size
+      %tr
+        %td На проект потрачено времени:
+        %td= "#{@project.spent_time} ч."
+  - if !(@project.users.include? current_user)
+    = button_to "Присоединиться", assign_user_path(current_user.id, @project.id), method: :post, class: "btn btn-warning"
+  %br/
+  = button_to "Редактировать", edit_project_path(@project), method: :get, class: "btn btn-info" 
+  %br/
+  = button_to "Удалить", project_path(@project), method: :delete, class: "btn btn-danger", data: { confirm: "Вы уверены?" }
+  - if @project.users.size != 0
+    %div{class: "page-header"}
+      %h3 Занятые сотрудники
+    %div{class: "responsive-table table-hover"}
+      %table.table
+        %tr
+          %th Имя сотрудника
+          %th Затрачено часов
+        - @project.users.each do |u|
+          %tr
+            %td= "#{u.first_name} #{u.last_name}"
+            %td= u.spent_time_on @project
 

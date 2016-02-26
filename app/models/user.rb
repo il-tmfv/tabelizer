@@ -10,4 +10,8 @@ class User < ActiveRecord::Base
   validates :first_name, :presence => {:message => 'не может быть пустым'}
   validates :last_name, :presence => {:message => 'не может быть пустой'}
   validates :position, :presence => {:message => 'не может быть пустой'}
+
+  def spent_time_on project
+    return 0
+  end
 end

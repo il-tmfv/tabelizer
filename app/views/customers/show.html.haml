@@ -1,8 +1,31 @@
-%h3= @customer.title
-%h4= @customer.comment
-%div Всего проектов у данного заказчика
-%div= @customer.projects.size
-
-= button_to "Редактировать", edit_customer_path(@customer), method: :get, class: "btn btn-info" 
-= button_to "Удалить", customer_path(@customer), method: :delete, class: "btn btn-danger", data: { confirm: "Вы уверены?" }
- 
+.container
+  %div{class: "page-header"}
+    %h1 Информация о заказчике
+  %div{class: "responsive-table table-hover"}
+    %table.table
+      %tr
+        %td Заказчик:
+        %td= @customer.title
+      %tr
+        %td Комментарий:
+        %td= @customer.comment
+      %tr
+        %td Всего проектов у данного заказчика:
+        %td= @customer.projects.size
+  = button_to "Редактировать", edit_customer_path(@customer), method: :get, class: "btn btn-info" 
+  %br/
+  = button_to "Удалить", customer_path(@customer), method: :delete, class: "btn btn-danger", data: { confirm: "Вы уверены?" }
+  - if @customer.projects.size != 0
+    %div{class: "page-header"}
+      %h3 Проекты заказчика
+    %div{class: "responsive-table table-hover"}
+      %table.table
+        %tr
+          %th Проект
+          %th Занято сотрудников
+          %th Потрачено часов
+        - @customer.projects.each do |p|
+          %tr
+            %td= p.title
+            %td= p.users.size
+            %td= p.spent_time

@@ -35,6 +35,7 @@ en:
         title: "Название"
         location: "Расположение"
         status: "Статус"
+        customer: "Заказчик"
       customer:
         title: "Название"
         comment: "Комментарий"
