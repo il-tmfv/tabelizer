@@ -1,7 +1,10 @@
 .container
   = simple_form_for project do |f|
-    = f.input :title
-    = f.input :location
-    = f.association :status, label_method: :text
-    = f.association :customer, label_method: :title
-    = f.button :submit, 'Сохранить', class: "btn btn-primary"
+    = f.error_notification
+    .form-inputs
+      = f.input :title
+      = f.input :location
+      = f.association :status, label_method: :text
+      = f.association :customer, label_method: :title
+    .form-actions
+      = f.button :submit, 'Сохранить', class: "btn btn-primary"

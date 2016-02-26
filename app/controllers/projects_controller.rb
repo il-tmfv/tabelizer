@@ -20,7 +20,7 @@ class ProjectsController < ApplicationController
       if @project.update_attributes(project_params)
         redirect_to action: :index
       else
-        redirect_to action: :edit
+       render action: :edit
       end
   end
 
@@ -29,7 +29,7 @@ class ProjectsController < ApplicationController
     if @project.save
       redirect_to action: :index
     else
-      redirect_to action: :new
+      render action: :new
     end
   end
 
