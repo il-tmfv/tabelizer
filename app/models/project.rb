@@ -12,8 +12,6 @@ class Project < ActiveRecord::Base
     scope :active, -> { joins(:status).where("statuses.text = 'Активный'") } 
     
     def spent_time 
-        time = 0.0
-        table_entries.each { |e| time += e.duration }
-        time
+      table_entries.sum(:duration)
     end
 end
