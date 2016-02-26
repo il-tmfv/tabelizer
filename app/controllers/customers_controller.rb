@@ -21,16 +21,17 @@ class CustomersController < ApplicationController
         flash[:notice] = 'Добавлен новый заказчик'
         redirect_to action: :index
       else
-        redirect_to action: :new
+        render action: :new
       end
   end
 
   def update
     @customer = Customer.find(params[:id])
       if @customer.update_attributes(customer_params)
+        flash[:notice] = 'Изменения сохранены'
         redirect_to action: :index
       else
-        redirect_to action: :edit
+        render action: :edit
       end
   end
 

@@ -54,3 +54,7 @@ en:
           attributes:
             title:
               blank: "не может быть пустым"
+        user:
+          attributes:
+            current_password: 
+              blank: "не может быть пустым"
