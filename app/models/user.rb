@@ -11,6 +11,8 @@ class User < ActiveRecord::Base
   validates :last_name, :presence => {:message => 'не может быть пустой'}
   validates :position, :presence => {:message => 'не может быть пустой'}
 
+  attr_accessor :table_year, :table_month
+
   def spent_time_on project
     table_entries.where(project: project).sum(:duration)
   end

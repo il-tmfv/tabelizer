@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :users 
   resources :projects
   post "assign/:user_id/to/:project_id" => "projects#assign_user", as: :assign_user
+  get "table/for/:user_id/:table_year/:table_month" => "users#show_table", as: :table_for_user
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

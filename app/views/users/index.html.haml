@@ -5,12 +5,12 @@
     %table{class: "table table-hover"}
       %thead
         %tr
-          %th= User.human_attribute_name(:first_name)
+          %th= User.human_attribute_name(:first_name) 
           %th= User.human_attribute_name(:position)
           %th Кол-во активных проектов
       %tbody
         - @users.each do |u|
           %tr
-            %td= "#{u.first_name} #{u.last_name}"
+            %td= link_to "#{u.first_name} #{u.last_name}", table_for_user_path(u.id, Date.current.year, Date.current.month)
             %td= u.position
             %td= u.projects.active.size
