@@ -1,6 +1,15 @@
 .container
   .page-header
     %h3 Табель сотрудника
+    %small= "за #{"%02d" % @table_month}/#{@table_year}"
+  .row
+    %small Год:
+    - (@table_year_start..@table_year_end).each do |year|
+      = link_to year.to_s, table_for_user_path(@table_user_id, year, 1)
+  .row
+    %small Месяц:
+    - (1..12).each do |month|
+      = link_to "#{"%02d" % month}", table_for_user_path(@table_user_id, @table_year, month)
   .responsive-table
     %table{class: "table table-hover"}
       %thead

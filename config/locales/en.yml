@@ -45,7 +45,7 @@ en:
       assignment:
         date: "Дата"
       table_entry:
-        commnet: "Комментарий"
+        comment: "Комментарий"
         duration: "Затраченное время"
         date: "Дата"
     errors:
