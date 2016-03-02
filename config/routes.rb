@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :customers
   resources :users 
   resources :projects
+  resources :table_entries
   post "assign/:user_id/to/:project_id" => "projects#assign_user", as: :assign_user
   get "table/for/:user_id/:table_year/:table_month" => "users#show_table", as: :table_for_user
   

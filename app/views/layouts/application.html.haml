@@ -15,13 +15,14 @@
               %span.sr-only Открыть навигацию
               %span.icon-bar
               %span.icon-bar
-              %span.icon-bar
               %a.navbar-brand{href: "/"} 
           %div.collapse.navbar-collapse{id: "site-navbar-collapse"}
             %ul.nav.navbar-nav
               %li= link_to 'Заказчики', customers_path
               %li= link_to 'Проекты', projects_path
               %li= link_to 'Сотрудники', users_path
+              %li= link_to 'Табель', table_entries_path
+              %li= link_to 'Новая запись', new_table_entry_path,  class: 'active'
             %ul.nav.vbar-nav.navbar-right
               %li.dropdown
                 %a.dropdown-toggle{href: "#", "data-toggle" => "dropdown", role: "button", "area-expanded" => "false"}

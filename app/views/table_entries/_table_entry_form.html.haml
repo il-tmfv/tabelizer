@@ -1,0 +1,11 @@
+.container
+  = simple_form_for table_entry do |f|
+    = f.error_notification
+    .form-inputs
+      = f.input :user_id, as: :hidden, input_html: { value: current_user.id }
+      = f.input :date, as: :date
+      = f.input :duration, as: :float
+      = f.input :comment
+      = f.association :project, collection: current_user.projects, label_method: :title
+    .form-actions
+      = f.button :submit, 'Сохранить', class: "btn btn-primary"

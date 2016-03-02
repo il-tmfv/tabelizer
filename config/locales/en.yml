@@ -48,6 +48,7 @@ en:
         comment: "Комментарий"
         duration: "Затраченное время"
         date: "Дата"
+        project: "Проект"
     errors:
       models:
         customer:
