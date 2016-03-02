@@ -34,6 +34,6 @@
           %th Затрачено часов
         - @project.users.each do |u|
           %tr
-            %td= "#{u.first_name} #{u.last_name}"
+            %td= link_to "#{u.first_name} #{u.last_name}", table_for_user_path(u.id, Date.current.year, Date.current.month)
             %td= u.spent_time_on @project
 
